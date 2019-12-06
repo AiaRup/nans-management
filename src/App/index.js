@@ -8,6 +8,9 @@ import { GlobalStyles } from '../Common/styles/global';
 
 import TopMenu from './components/TopMenu';
 import SideMenu from './components/SideMenu';
+import Breadcrumbs from './components/Breadcrumbs';
+
+import { appStructureData } from '../../static/data';
 
 // import locale from 'antd/es/date-picker/locale/en_GB';
 import moment from 'moment';
@@ -27,11 +30,7 @@ const App = () => {
         <Layout style={{ height: '100%', display: 'flex' }}>
           <TopMenu />
           <Content style={{ padding: '0 50px', flexGrow: '1' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
+            <Breadcrumbs />
             <Layout style={{ padding: '24px 0', background: '#fff' }}>
               <SideMenu />
               <Content style={{ padding: '0 24px', minHeight: 280 }}>
