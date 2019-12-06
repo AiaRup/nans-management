@@ -1,10 +1,13 @@
 import React, { useEffect, useReducer, useCallback } from 'react';
 import styled from '@emotion/styled';
-import { Layout, Menu, Switch } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { langReducer, initialLangState } from '../../AppContext';
 
 const SideMenu = () => {
+  const { SubMenu } = Menu;
+  const { Sider } = Layout;
+
   return (
     <Sider width={200} style={{ background: '#fff' }}>
       <Menu
