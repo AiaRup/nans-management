@@ -1,1 +1,1 @@
-export { ReservationsContainer as default } from './ReservationsdContainer';
+export { ReservationsContainer as default } from './ReservationsContainer';

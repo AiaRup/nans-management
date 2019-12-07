@@ -23,6 +23,8 @@ export const GlobalStyles = () => (
         height: 100vh;
         position: relative;
       }
+      .ant-menu-horizontal > .ant-menu-item > a {
+        display: inline;
     `}
   />
 );

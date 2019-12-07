@@ -1,1 +1,1 @@
-export { OrdersContainer as default } from './DashboardContainer';
+export { OrdersContainer as default } from './OrdersContainer';

@@ -27,9 +27,12 @@ export default {
   sortBy: 'Sort by',
   assign: 'Assign',
 
-  // header text
-  campaigns: 'Campaigns',
-  library: 'Library',
-  inventory: 'Inventory',
-  logout: 'Logout'
+  // header links
+  dashboard: 'Dashboard',
+  employees: 'Employees',
+  orders: 'Orders',
+  menu: 'Menu',
+  payments: 'Payments',
+  reservations: 'Reservations',
+  inventory: 'Inventory'
 };

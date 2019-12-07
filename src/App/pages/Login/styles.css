@@ -1,0 +1,19 @@
+.login-form {
+  padding: 50px 40px;
+  max-width: 350px;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.login-form-forgot {
+  float: right;
+}
+.login-form-button {
+  width: 100%;
+}
+.ant-form-item:last-of-type {
+  margin-bottom: 0;
+}

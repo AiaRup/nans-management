@@ -1,1 +1,1 @@
-export { PaymentsContainer as default } from './DashboardContainer';
+export { PaymentsContainer as default } from './PaymentsContainer';
