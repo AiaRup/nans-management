@@ -2,14 +2,9 @@ import React, { useReducer, lazy, Suspense } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Router, Redirect } from '@reach/router';
 import { langReducer, initialLangState } from './AppContext';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { IntlProvider } from 'react-intl';
 
 import { GlobalStyles } from '../Common/styles/global';
-
-import TopMenu from './components/TopMenu';
-import SideMenu from './components/SideMenu';
-import Breadcrumbs from './components/Breadcrumbs';
 
 import { appStructureData } from '../../static/data';
 
@@ -18,28 +13,45 @@ import 'moment/locale/en-gb';
 
 moment.locale('en-gb');
 
+const DashboardContainer = lazy(() => import('./pages/DashboardContainer/'));
+const EmployeesContainer = lazy(() => import('./pages/EmployeesContainer/'));
+const InventoryContainer = lazy(() => import('./pages/InventoryContainer'));
+const OrdersContainer = lazy(() => import('./pages/ScheduleContentContainer'));
+const MenuContainer = lazy(() => import('./pages/MenuContainer'));
+const PaymentsContainer = lazy(() => import('./pages/PaymentsContainer'));
+
+const ReservationsContainer = lazy(() =>
+  import('./pages/LibraryContainer/ReservationsContainer')
+);
+
+const NotAllowedPage = () => <div>Not Allowed</div>;
+const ServerErrorPage = () => <div>Server Error</div>;
+const NotFoundPage = () => <div>Not Found</div>;
+const RedirectToNotFound = () => <Redirect noThrow to="/not-found" />;
+
 const App = () => {
   const [{ locale, messages }] = useReducer(langReducer, initialLangState);
 
-  const { SubMenu } = Menu;
-  const { Header, Content, Sider, Footer } = Layout;
   return (
     <>
       <GlobalStyles />
       <IntlProvider defaultLocale={locale} locale={locale} messages={messages}>
-        <Layout style={{ height: '100%', display: 'flex' }}>
-          <TopMenu />
-          <Content style={{ padding: '0 50px', flexGrow: '1' }}>
-            <Breadcrumbs />
-            <Layout style={{ padding: '24px 0', background: '#fff' }}>
-              <SideMenu />
-              <Content style={{ padding: '0 24px', minHeight: 280 }}>
-                Content
-              </Content>
-            </Layout>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>Aia Rupsom ©2019</Footer>
-        </Layout>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Router>
+            <Redirect noThrow from="/" to="/dashboard" />
+            <DashboardContainer path="/dashboard" />
+            <EmployeesContainer path="/employees" />
+            <OrdersContainer path="/orders" />
+            <MenuContainer path="/menu" />
+            <PaymentsContainer path="/payments" />
+            <ReservationsContainer path="/reservations" />
+            <InventoryContainer path="/inventory" />
+            <RedirectToNotFound default />
+            <NotAllowedPage path="/not-allowed" />
+            <ServerErrorPage path="/server-error" />
+            <NotFoundPage path="/not-found" />
+          </Router>
+        </Suspense>
       </IntlProvider>
     </>
   );
