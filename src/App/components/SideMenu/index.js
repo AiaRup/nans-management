@@ -1,7 +1,5 @@
-import React, { useEffect, useReducer, useCallback } from 'react';
-import styled from '@emotion/styled';
+import React from 'react';
 import { Layout, Menu, Icon } from 'antd';
-import { FormattedMessage } from 'react-intl';
 
 const SideMenu = () => {
   const { SubMenu } = Menu;

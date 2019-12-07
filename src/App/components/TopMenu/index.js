@@ -7,7 +7,9 @@ import { protectedComponent } from '../Protected';
 
 export const TopMenu = protectedComponent(props => {
   const { locale, dispatch: IntlDispatch } = useContext(IntlContext);
-  const { userName, dispatch: AuthDispatch } = useContext(AuthContext);
+  const { userName, isAuthenticated, dispatch: AuthDispatch } = useContext(
+    AuthContext
+  );
 
   const { Header } = Layout;
   const { SubMenu } = Menu;
@@ -41,7 +43,7 @@ export const TopMenu = protectedComponent(props => {
           </Link>
         </Menu.Item>
         <Menu.Item key="/payments">
-          <Icon type="money-collect" />
+          <Icon type="euro" />{' '}
           <Link to={'/payments'}>
             <FormattedMessage id={'payments'} />
           </Link>

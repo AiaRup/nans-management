@@ -6,7 +6,7 @@ import { AuthContext } from '../../../Common/contexts';
 export const protectedComponent = Component => props => {
   const { authToken, isAuthenticated } = useContext(AuthContext);
 
-  if (!authToken && isAuthenticated)
+  if (!authToken && !isAuthenticated)
     return <Redirect from="" to="login" noThrow />;
   return <Component {...props} />;
 };
