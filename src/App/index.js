@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, lazy, Suspense } from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Router, Redirect } from '@reach/router';
 import { langReducer, initialLangState } from './AppContext';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 import { IntlProvider } from 'react-intl';
@@ -12,7 +13,6 @@ import Breadcrumbs from './components/Breadcrumbs';
 
 import { appStructureData } from '../../static/data';
 
-// import locale from 'antd/es/date-picker/locale/en_GB';
 import moment from 'moment';
 import 'moment/locale/en-gb';
 
