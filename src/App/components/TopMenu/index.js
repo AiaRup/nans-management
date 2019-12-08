@@ -9,6 +9,8 @@ import {
 } from '../../../Common/contexts';
 import { protectedComponent } from '../Protected';
 
+import './styles.css';
+
 export const TopMenu = protectedComponent(props => {
   const { locale, dispatch: IntlDispatch } = useContext(IntlContext);
   const { userName, isAuthenticated, dispatch: AuthDispatch } = useContext(

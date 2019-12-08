@@ -35,7 +35,7 @@ const App = () => {
       <AuthProvider>
         <AppIntlProvider>
           <LocationProvider>
-            <TopMenu />;
+            <TopMenu />
             <Suspense fallback={null}>
               <Router>
                 <Login path="/login" />
