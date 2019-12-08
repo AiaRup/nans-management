@@ -1,5 +1,14 @@
 import React from 'react';
-import { Form, Icon, Input, Button, Checkbox, Row } from 'antd';
+import {
+  Form,
+  Icon,
+  Input,
+  Button,
+  Checkbox,
+  Row,
+  PageHeader,
+  Avatar
+} from 'antd';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { Link } from '@reach/router';
 
@@ -28,6 +37,12 @@ const NormalLoginForm = unProtectedComponent(({ form, intl }) => {
       style={{ minHeight: '100vh' }}
     >
       <Form onSubmit={handleSubmit} className="login-form">
+        <PageHeader
+          title={intl.formatMessage({ id: 'login' })}
+          color="rgba(0, 0, 0, 0.65)"
+        >
+          <Avatar style={{ backgroundColor: '#1DA57A' }} icon="user" />
+        </PageHeader>
         <FormItem>
           {getFieldDecorator('userName', {
             rules: [{ required: true, message: 'Please input your username!' }]

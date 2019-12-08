@@ -43,5 +43,11 @@ export default {
   login: 'Login',
   forgotPassword: 'Forgot password',
   rememberMe: 'Remember me',
-  registerNow: 'Register now'
+  registerNow: 'Register now',
+
+  // register form
+  email: 'Email',
+  confirmPassword: 'Confirm Password',
+  register: 'Register',
+  alreadyRegistered: 'Already Registered?'
 };

@@ -17,3 +17,18 @@
 .ant-form-item:last-of-type {
   margin-bottom: 0;
 }
+
+.login-form .ant-page-header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 0 0 30px;
+}
+
+.login-form .ant-page-header-content {
+  padding: 0 30px 0 0;
+}
+
+.login-form .ant-page-header-heading-title {
+  color: rgba(0, 0, 0, 0.85);
+}

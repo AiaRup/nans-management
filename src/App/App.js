@@ -7,6 +7,7 @@ import { AppIntlProvider, AuthProvider } from '../Common/contexts';
 
 const Home = lazy(() => import('./pages/Home'));
 const Login = lazy(() => import('./pages/Login'));
+const Register = lazy(() => import('./pages/Register'));
 const DashboardContainer = lazy(() => import('./pages/DashboardContainer'));
 const EmployeesContainer = lazy(() => import('./pages/EmployeesContainer'));
 const InventoryContainer = lazy(() => import('./pages/InventoryContainer'));
@@ -35,7 +36,8 @@ const App = () => {
           </Location>
           <Suspense fallback={null}>
             <Router>
-              <Login path="login" />
+              <Login path="/login" />
+              <Register path="/register" />
               <Home path="/">
                 <Redirect noThrow from="/" to="/dashboard" />
                 <DashboardContainer path="/dashboard" />

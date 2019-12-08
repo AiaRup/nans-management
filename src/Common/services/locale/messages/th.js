@@ -22,5 +22,11 @@ export default {
   login: 'เข้าสู่ระบบ',
   forgotPassword: 'ลืมรหัสผ่าน',
   rememberMe: 'จดจำฉัน',
-  registerNow: 'สมัครตอนนี้'
+  registerNow: 'สมัครตอนนี้',
+
+  // register form
+  email: 'อีเมล',
+  confirmPassword: 'ยืนยันรหัสผ่าน',
+  register: 'การลงทะเบียน',
+  alreadyRegistered: 'ลงทะเบียนเรียบร้อยแล้ว?'
 };
