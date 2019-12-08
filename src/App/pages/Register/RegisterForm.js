@@ -1,12 +1,15 @@
-import React from 'react';
-import { Form, Input, Row, Button, PageHeader, Avatar } from 'antd';
+import React, { useContext } from 'react';
+import { Form, Input, Row, Button, PageHeader, Avatar, Switch } from 'antd';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { Link } from '@reach/router';
 import { unProtectedComponent } from '../../components/Unprotected';
 
 import './styles.css';
+import { IntlContext } from '../../../Common/contexts';
 
 const RegistrationForm = unProtectedComponent(({ form, intl }) => {
+  const { locale, dispatch: IntlDispatch } = useContext(IntlContext);
+
   const state = {
     confirmDirty: false
   };
@@ -77,6 +80,16 @@ const RegistrationForm = unProtectedComponent(({ form, intl }) => {
         onSubmit={handleSubmit}
         className="register__form"
       >
+        <Switch
+          checkedChildren="TH"
+          unCheckedChildren="EN"
+          onChange={() =>
+            IntlDispatch({
+              type: 'SET_LOCALE',
+              payload: locale === 'en' ? 'th' : 'en'
+            })
+          }
+        />
         <PageHeader
           title={intl.formatMessage({ id: 'register' })}
           color="rgba(0, 0, 0, 0.65)"

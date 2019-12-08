@@ -32,3 +32,7 @@
 .login-form .ant-page-header-heading-title {
   color: rgba(0, 0, 0, 0.85);
 }
+
+.login-form .ant-switch {
+  float: right;
+}

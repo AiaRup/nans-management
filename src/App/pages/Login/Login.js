@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Form,
   Icon,
@@ -7,16 +7,20 @@ import {
   Checkbox,
   Row,
   PageHeader,
-  Avatar
+  Avatar,
+  Switch
 } from 'antd';
 import { injectIntl, FormattedMessage } from 'react-intl';
 import { Link } from '@reach/router';
 
 import './styles.css';
 
+import { IntlContext } from '../../../Common/contexts';
 import { unProtectedComponent } from '../../components/Unprotected';
 
 const NormalLoginForm = unProtectedComponent(({ form, intl }) => {
+  const { locale, dispatch: IntlDispatch } = useContext(IntlContext);
+
   const handleSubmit = e => {
     e.preventDefault();
     form.validateFields((err, values) => {
@@ -37,6 +41,16 @@ const NormalLoginForm = unProtectedComponent(({ form, intl }) => {
       style={{ minHeight: '100vh' }}
     >
       <Form onSubmit={handleSubmit} className="login-form">
+        <Switch
+          checkedChildren="TH"
+          unCheckedChildren="EN"
+          onChange={() =>
+            IntlDispatch({
+              type: 'SET_LOCALE',
+              payload: locale === 'en' ? 'th' : 'en'
+            })
+          }
+        />
         <PageHeader
           title={intl.formatMessage({ id: 'login' })}
           color="rgba(0, 0, 0, 0.65)"

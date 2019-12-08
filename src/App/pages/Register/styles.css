@@ -31,6 +31,9 @@
   .register__form .ant-col-sm-16 {
     width: 57%;
   }
+  .register__form .already__registered .ant-col-sm-16 {
+    width: 100%;
+  }
 }
 
 .register__form .ant-page-header {
@@ -46,4 +49,8 @@
 
 .register__form .ant-page-header-heading-title {
   color: rgba(0, 0, 0, 0.85);
+}
+
+.register__form .ant-switch {
+  float: right;
 }
