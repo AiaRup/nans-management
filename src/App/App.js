@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Router, Redirect, Location } from '@reach/router';
+import { Router, Redirect } from '@reach/router';
 
 import { GlobalStyles } from '../Common/styles/global';
 import TopMenu from '../App/components/TopMenu';
@@ -23,8 +23,6 @@ const ReservationsContainer = lazy(() =>
   import('./pages/ReservationsContainer')
 );
 
-const NotAllowedPage = () => <div>Not Allowed</div>;
-const ServerErrorPage = () => <div>Server Error</div>;
 const NotFoundPage = () => <div>Not Found</div>;
 const RedirectToNotFound = () => <Redirect noThrow to="/not-found" />;
 
@@ -51,8 +49,6 @@ const App = () => {
                   <ReservationsContainer path="/reservations" />
                   <InventoryContainer path="/inventory" />
                   <RedirectToNotFound default />
-                  <NotAllowedPage path="/not-allowed" />
-                  <ServerErrorPage path="/server-error" />
                   <NotFoundPage path="/not-found" />
                 </Home>
               </Router>

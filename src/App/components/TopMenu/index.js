@@ -11,11 +11,9 @@ import { protectedComponent } from '../Protected';
 
 import './styles.css';
 
-export const TopMenu = protectedComponent(props => {
+export const TopMenu = protectedComponent(() => {
   const { locale, dispatch: IntlDispatch } = useContext(IntlContext);
-  const { userName, isAuthenticated, dispatch: AuthDispatch } = useContext(
-    AuthContext
-  );
+  const { userName, dispatch: AuthDispatch } = useContext(AuthContext);
   const { location } = useContext(LocationContext);
 
   const { Header } = Layout;
