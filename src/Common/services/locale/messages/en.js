@@ -2,6 +2,7 @@ export default {
   done: 'Done',
   cancel: 'Cancel',
   none: 'None',
+  or: 'Or',
   close: 'Close',
   saving: 'Saving...',
   yes: 'Yes',
@@ -9,7 +10,6 @@ export default {
   ADD: 'ADD',
   REMOVE: 'REMOVE',
   next: 'Next',
-  or: 'OR',
   success: 'Success',
   complete: 'Success',
   uploading: 'Uploading',
@@ -34,5 +34,14 @@ export default {
   menu: 'Menu',
   payments: 'Payments',
   reservations: 'Reservations',
-  inventory: 'Inventory'
+  inventory: 'Inventory',
+  logout: 'Log Out',
+
+  // login form
+  password: 'Password',
+  username: 'Username',
+  login: 'Login',
+  forgotPassword: 'Forgot password',
+  rememberMe: 'Remember me',
+  registerNow: 'Register now'
 };

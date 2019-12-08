@@ -97,7 +97,7 @@ export const TopMenu = protectedComponent(props => {
             }
           >
             <Icon type="logout" />
-            Log Out
+            <FormattedMessage id={'logout'} />
           </Menu.Item>
         </SubMenu>
       </Menu>

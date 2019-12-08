@@ -1,21 +1,25 @@
 import React from 'react';
 import { Form, Icon, Input, Button, Checkbox, Row } from 'antd';
+import { injectIntl, FormattedMessage } from 'react-intl';
+import { Link } from '@reach/router';
+
 import './styles.css';
 
 import { unProtectedComponent } from '../../components/Unprotected';
 
-const FormItem = Form.Item;
-
-const NormalLoginForm = unProtectedComponent(props => {
+const NormalLoginForm = unProtectedComponent(({ form, intl }) => {
   const handleSubmit = e => {
     e.preventDefault();
-    props.form.validateFields((err, values) => {
+    form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
   };
-  const { getFieldDecorator } = props.form;
+
+  const FormItem = Form.Item;
+  const { getFieldDecorator } = form;
+
   return (
     <Row
       type="flex"
@@ -30,7 +34,7 @@ const NormalLoginForm = unProtectedComponent(props => {
           })(
             <Input
               prefix={<Icon type="user" style={{ fontSize: 13 }} />}
-              placeholder="Username"
+              placeholder={intl.formatMessage({ id: 'username' })}
             />
           )}
         </FormItem>
@@ -41,7 +45,7 @@ const NormalLoginForm = unProtectedComponent(props => {
             <Input
               prefix={<Icon type="lock" style={{ fontSize: 13 }} />}
               type="password"
-              placeholder="Password"
+              placeholder={intl.formatMessage({ id: 'password' })}
             />
           )}
         </FormItem>
@@ -49,22 +53,31 @@ const NormalLoginForm = unProtectedComponent(props => {
           {getFieldDecorator('remember', {
             valuePropName: 'checked',
             initialValue: true
-          })(<Checkbox>Remember me</Checkbox>)}
-          <a className="login-form-forgot" href="">
-            Forgot password
-          </a>
+          })(
+            <Checkbox>
+              <FormattedMessage id={'rememberMe'} />
+            </Checkbox>
+          )}
+          <Link to={'/forgot-password'} className="login-form-forgot">
+            <FormattedMessage id={'forgotPassword'} />
+          </Link>
           <Button
             type="primary"
             htmlType="submit"
             className="login-form-button"
           >
-            Log in
+            <FormattedMessage id={'login'} />
           </Button>
-          Or <a href="">register now!</a>
+          <FormattedMessage id={'or'} />{' '}
+          <Link to={'/register'}>
+            <FormattedMessage id={'registerNow'} />
+          </Link>
         </FormItem>
       </Form>
     </Row>
   );
 });
 
-export const WrappedNormalLoginForm = Form.create()(NormalLoginForm);
+export const WrappedNormalLoginForm = Form.create()(
+  injectIntl(NormalLoginForm)
+);
