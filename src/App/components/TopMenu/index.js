@@ -2,7 +2,11 @@ import React, { useContext } from 'react';
 import { Layout, Menu, Switch, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { Link } from '@reach/router';
-import { IntlContext, AuthContext } from '../../../Common/contexts';
+import {
+  IntlContext,
+  AuthContext,
+  LocationContext
+} from '../../../Common/contexts';
 import { protectedComponent } from '../Protected';
 
 export const TopMenu = protectedComponent(props => {
@@ -10,6 +14,7 @@ export const TopMenu = protectedComponent(props => {
   const { userName, isAuthenticated, dispatch: AuthDispatch } = useContext(
     AuthContext
   );
+  const { location } = useContext(LocationContext);
 
   const { Header } = Layout;
   const { SubMenu } = Menu;
@@ -21,7 +26,7 @@ export const TopMenu = protectedComponent(props => {
         theme="light"
         mode="horizontal"
         style={{ lineHeight: '64px' }}
-        selectedKeys={[props.location.pathname]}
+        selectedKeys={[location.pathname]}
         defaultSelectedKeys={['dashboard']}
       >
         <Menu.Item key="/dashboard">

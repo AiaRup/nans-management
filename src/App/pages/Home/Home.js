@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout } from 'antd';
+
 import { protectedComponent } from '../../components/Protected';
 
 export const Home = protectedComponent(({ children }) => {

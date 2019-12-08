@@ -3,7 +3,11 @@ import { Router, Redirect, Location } from '@reach/router';
 
 import { GlobalStyles } from '../Common/styles/global';
 import TopMenu from '../App/components/TopMenu';
-import { AppIntlProvider, AuthProvider } from '../Common/contexts';
+import {
+  AppIntlProvider,
+  AuthProvider,
+  LocationProvider
+} from '../Common/contexts';
 
 const Home = lazy(() => import('./pages/Home'));
 const Login = lazy(() => import('./pages/Login'));
@@ -30,32 +34,30 @@ const App = () => {
       <GlobalStyles />
       <AuthProvider>
         <AppIntlProvider>
-          <Location>
-            {props => {
-              return <TopMenu {...props} />;
-            }}
-          </Location>
-          <Suspense fallback={null}>
-            <Router>
-              <Login path="/login" />
-              <Register path="/register" />
-              <ForgotPassword path="/forgot-password" />
-              <Home path="/">
-                <Redirect noThrow from="/" to="/dashboard" />
-                <DashboardContainer path="/dashboard" />
-                <EmployeesContainer path="/employees" />
-                <OrdersContainer path="/orders" />
-                <MenuContainer path="/menu" />
-                <PaymentsContainer path="/payments" />
-                <ReservationsContainer path="/reservations" />
-                <InventoryContainer path="/inventory" />
-                <RedirectToNotFound default />
-                <NotAllowedPage path="/not-allowed" />
-                <ServerErrorPage path="/server-error" />
-                <NotFoundPage path="/not-found" />
-              </Home>
-            </Router>
-          </Suspense>
+          <LocationProvider>
+            <TopMenu />;
+            <Suspense fallback={null}>
+              <Router>
+                <Login path="/login" />
+                <Register path="/register" />
+                <ForgotPassword path="/forgot-password" />
+                <Home path="/">
+                  <Redirect noThrow from="/" to="/dashboard" />
+                  <DashboardContainer path="/dashboard" />
+                  <EmployeesContainer path="/employees" />
+                  <OrdersContainer path="/orders" />
+                  <MenuContainer path="/menu" />
+                  <PaymentsContainer path="/payments" />
+                  <ReservationsContainer path="/reservations" />
+                  <InventoryContainer path="/inventory" />
+                  <RedirectToNotFound default />
+                  <NotAllowedPage path="/not-allowed" />
+                  <ServerErrorPage path="/server-error" />
+                  <NotFoundPage path="/not-found" />
+                </Home>
+              </Router>
+            </Suspense>
+          </LocationProvider>
         </AppIntlProvider>
       </AuthProvider>
     </>
