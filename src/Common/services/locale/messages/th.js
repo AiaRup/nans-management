@@ -28,5 +28,12 @@ export default {
   email: 'อีเมล',
   confirmPassword: 'ยืนยันรหัสผ่าน',
   register: 'การลงทะเบียน',
-  alreadyRegistered: 'ลงทะเบียนเรียบร้อยแล้ว?'
+  alreadyRegistered: 'ลงทะเบียนเรียบร้อยแล้ว?',
+
+  // forgot-password form
+  // forgot-password form
+  backToLogin: 'กลับไปยัง',
+  restePassword: 'รีเซ็ตรหัสผ่านของคุณ?',
+  send: 'ส่ง',
+  forgotInstructions: 'ป้อนที่อยู่อีเมลที่คุณลงทะเบียนด้วย:'
 };

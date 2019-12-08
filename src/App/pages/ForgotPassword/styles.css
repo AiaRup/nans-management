@@ -1,0 +1,32 @@
+.forgot__password__form {
+  padding: 50px 40px;
+  max-width: 350px;
+  border: 1px solid rgb(217, 217, 217);
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+.back__to__login {
+  float: right;
+}
+
+.forgot__password__form .ant-page-header {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 0 0 30px;
+}
+
+.forgot__password__form .ant-page-header-content {
+  padding: 0 30px 0 0;
+}
+
+.forgot__password__form .ant-page-header-heading-title {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.forgot__password__form .ant-switch {
+  float: right;
+}

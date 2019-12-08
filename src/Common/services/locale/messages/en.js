@@ -49,5 +49,11 @@ export default {
   email: 'Email',
   confirmPassword: 'Confirm Password',
   register: 'Register',
-  alreadyRegistered: 'Already Registered?'
+  alreadyRegistered: 'Already Registered?',
+
+  // forgot-password form
+  backToLogin: 'Back to',
+  restePassword: 'Reset your Password?',
+  send: 'Send',
+  forgotInstructions: 'Enter the email address you registered with:'
 };
