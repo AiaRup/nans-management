@@ -1,33 +1,33 @@
 export const menus = [
   {
-    title: 'Dashboard',
+    title: 'dashboard',
     path: '/dashboard',
     icon: 'user',
-    tabs: [{ title: 'Table View', path: '/table-view', icon: 'user' }]
+    tabs: [{ title: 'tableView', path: '/table-view', icon: 'user' }]
   },
   {
-    title: 'Reservations',
+    title: 'reservations',
     icon: 'user',
     tabs: [
-      { title: 'Overview - Today', path: '/overview', icon: 'user' },
+      { title: 'OverviewToday', path: '/overview', icon: 'user' },
       {
-        title: 'Manage',
+        title: 'manage',
         path: '/manage',
         children: [
           {
-            title: 'Add Reservation',
+            title: 'addReservation',
             path: '/add-reservation',
             icon: 'user',
             child: true
           },
           {
-            title: 'Update Reservation',
+            title: 'updateReservation',
             path: '/update-reservation',
             icon: 'user',
             child: true
           },
           {
-            title: 'Delete Reservation',
+            title: 'deleteReservation',
             path: '/delete-reservation',
             icon: 'user',
             child: true
@@ -35,32 +35,32 @@ export const menus = [
         ]
       },
       {
-        title: 'Archive',
+        title: 'archive',
         path: '/archive',
         icon: 'user'
       }
     ]
   },
   {
-    title: 'Employees',
+    title: 'employees',
     path: '/employees',
     icon: 'user',
 
     tabs: [
       {
-        title: 'Manage',
+        title: 'manage',
         path: '/manage',
         icon: 'user',
 
         children: [
           {
-            title: 'Add Employee',
+            title: 'addEmployee',
             path: '/add-employee',
             icon: 'user',
             child: true
           },
           {
-            title: 'Update Details',
+            title: 'updateDetails',
             path: '/update-details',
             icon: 'user',
             child: true
@@ -68,19 +68,19 @@ export const menus = [
         ]
       },
       {
-        title: 'Working Hours',
+        title: 'workingHours',
         path: '/working-hours',
         icon: 'user',
 
         children: [
           {
-            title: 'Update Hours',
+            title: 'updateHours',
             path: '/apdate-hours',
             icon: 'user',
             child: true
           },
           {
-            title: 'Add Working Hours',
+            title: 'addWorkingHours',
             path: '/add-hours',
             icon: 'user',
             child: true
@@ -88,38 +88,38 @@ export const menus = [
         ]
       },
       {
-        title: 'Archive',
+        title: 'archive',
         path: '/archive',
         icon: 'user'
       }
     ]
   },
   {
-    title: 'Payments',
+    title: 'payments',
     path: '/payments',
     icon: 'user',
 
     tabs: [
       {
-        title: 'Clients',
+        title: 'clients',
         path: '/clients',
         icon: 'user',
 
         children: [
           {
-            title: 'Add Payment',
+            title: 'addPayment',
             path: '/add-payment',
             icon: 'user',
             child: true
           },
           {
-            title: 'Delete Payment',
+            title: 'deletePayment',
             path: '/delete-payment',
             icon: 'user',
             child: true
           },
           {
-            title: 'Update Payment',
+            title: 'updatePayment',
             path: '/update-payment',
             icon: 'user',
             child: true
@@ -127,25 +127,25 @@ export const menus = [
         ]
       },
       {
-        title: 'Vendors',
+        title: 'vendors',
         path: '/vendors',
         icon: 'user',
 
         children: [
           {
-            title: 'Add Payment',
+            title: 'addPayment',
             path: '/add-payment',
             icon: 'user',
             child: true
           },
           {
-            title: 'Delete Payment',
+            title: 'deletePayment',
             path: '/delete-payment',
             icon: 'user',
             child: true
           },
           {
-            title: 'Update Payment',
+            title: 'updatePayment',
             path: '/update-payment',
             icon: 'user',
             child: true
@@ -153,25 +153,25 @@ export const menus = [
         ]
       },
       {
-        title: 'Employees',
+        title: 'employees',
         path: '/employees',
         icon: 'user',
 
         children: [
           {
-            title: 'Add Payment',
+            title: 'addPayment',
             path: '/add-payment',
             icon: 'user',
             child: true
           },
           {
-            title: 'Delete Payment',
+            title: 'deletePayment',
             path: '/delete-payment',
             icon: 'user',
             child: true
           },
           {
-            title: 'Update Payment',
+            title: 'updatePayment',
             path: '/update-payment',
             icon: 'user',
             child: true
@@ -181,31 +181,31 @@ export const menus = [
     ]
   },
   {
-    title: 'Inventory',
+    title: 'inventory',
     path: '/inventory',
     icon: 'user',
 
     tabs: [
       {
-        title: 'Manage Inventory',
+        title: 'manageInventory',
         path: '/manage',
         icon: 'user',
 
         children: [
           {
-            title: 'Add Inventory',
+            title: 'addInventory',
             path: '/add-inventory',
             icon: 'user',
             child: true
           },
           {
-            title: 'Update Inventory',
+            title: 'updateInventory',
             path: '/update-inventory',
             icon: 'user',
             child: true
           },
           {
-            title: 'Delete Inventory',
+            title: 'deleteInventory',
             path: '/delete-inventory',
             icon: 'user',
             child: true
@@ -213,32 +213,32 @@ export const menus = [
         ]
       },
       {
-        title: 'Current Inventory',
+        title: 'currentInventory',
         path: '/current-inventory',
         icon: 'user'
       },
       {
-        title: 'Archive',
+        title: 'archive',
         path: '/archive',
         icon: 'user'
       }
     ]
   },
   {
-    title: 'Orders',
+    title: 'orders',
     path: '/orders',
     icon: 'user',
 
     tabs: [
       {
-        title: "Today's Orders",
+        title: 'todaysOrders',
         path: '/today-orders',
         icon: 'user',
 
         children: [
-          { title: 'All', path: '/all', icon: 'user', child: true },
+          { title: 'all', path: '/all', icon: 'user', child: true },
           {
-            title: 'On Preparation',
+            title: 'onPreparation',
             path: '/on-preparation',
             icon: 'user',
             child: true
@@ -247,58 +247,58 @@ export const menus = [
         ]
       },
       {
-        title: 'Manage Order',
+        title: 'manageOrder',
         path: '/manage',
         icon: 'user',
 
         children: [
-          { title: 'New Order', path: '/new-order', icon: 'user', child: true },
+          { title: 'newOrder', path: '/new-order', icon: 'user', child: true },
           {
-            title: 'Update Order',
+            title: 'updateOrder',
             path: '/update-order',
             icon: 'user',
             child: true
           },
           {
-            title: 'Delete Order',
+            title: 'deleteOrder',
             path: '/delete-order',
             icon: 'user',
             child: true
           }
         ]
       },
-      { title: 'Archive', path: '/archive', icon: 'user' }
+      { title: 'archive', path: '/archive', icon: 'user' }
     ]
   },
   {
-    title: 'Menu',
+    title: 'menu',
     path: '/menu',
     icon: 'user',
 
     tabs: [
-      { title: 'Current Menu', path: '/curren-menu', icon: 'user' },
+      { title: 'currentMenu', path: '/curren-menu', icon: 'user' },
       {
-        title: 'Manage Menu',
+        title: 'manageMenu',
         path: '/manage',
         icon: 'user',
 
         children: [
-          { title: 'New Dish', path: '/new-dish', icon: 'user', child: true },
+          { title: 'newDish', path: '/new-dish', icon: 'user', child: true },
           {
-            title: 'Update Dish',
+            title: 'updateDish',
             path: '/update-dish',
             icon: 'user',
             child: true
           },
           {
-            title: 'Delete Dish',
+            title: 'deleteDish',
             path: '/delete-dish',
             icon: 'user',
             child: true
           }
         ]
       },
-      { title: 'Archive', path: '/archive', icon: 'user' }
+      { title: 'archive', path: '/archive', icon: 'user' }
     ]
   }
 ];
