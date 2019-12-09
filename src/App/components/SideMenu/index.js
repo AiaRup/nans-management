@@ -14,27 +14,27 @@ const SideMenu = ({ menu }) => {
   } = useContext(LocationContext);
 
   const isExpendable = menu.tabs.some(item => item.children);
-  const expandableTabs = () => {
-    const list = isExpendable ? menu.tabs.filter(item => item.children) : [];
-    return list.length ? list.map(subTab => subTab.path) : list;
-  };
+  const expandableTabs = isExpendable
+    ? menu.tabs.filter(item => item.children).map(subTab => subTab.path)
+    : [];
 
-  const tabs = expandableTabs();
   const firstClickableItem = isExpendable
     ? menu.tabs.filter(item => item.children)[0].path
     : menu.tabs[0].path;
 
   const [collapsed, setCollapse] = useState(false);
-  const [rootSubmenuKeys] = useState(expandableTabs());
-  const [openKeys, setOpenKeys] = useState(tabs.length ? [tabs[0]] : []);
-  const [selectedKeys, setSelectedKeys] = useState([]);
+  // const [rootSubmenuKeys] = useState(expandableTabs);
+  // const [openKeys, setOpenKeys] = useState(
+  //   isExpendable ? [expandableTabs[0]] : []
+  // );
+  // const [selectedKeys, setSelectedKeys] = useState([]);
 
-  useEffect(() => {
-    setSelectedKeys([firstClickableItem]);
-  }, []);
+  // useEffect(() => {
+  //   setSelectedKeys([firstClickableItem]);
+  // }, []);
 
   const handleMenuClick = v => {
-    setSelectedKeys([v.key]);
+    // setSelectedKeys([v.key]);
     navigate(`${pathname}${v.key}`);
   };
 
@@ -42,25 +42,26 @@ const SideMenu = ({ menu }) => {
     setCollapse(!collapsed);
   };
 
-  const handleOpenChange = v => {
-    const latestOpenKey = v.find(key => openKeys.indexOf(key) !== -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(v);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
-  };
+  // const handleOpenChange = v => {
+  //   const latestOpenKey = v.find(key => openKeys.indexOf(key) === -1);
+  //   if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+  //     setOpenKeys(v);
+  //   } else {
+  //     setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+  //   }
+  // };
 
   return (
     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <Menu
         mode="inline"
         style={{ height: '100%' }}
-        selectedKeys={selectedKeys}
-        openKeys={openKeys}
+        // selectedKeys={selectedKeys}
+        // openKeys={openKeys}
         onClick={handleMenuClick}
-        onOpenChange={handleOpenChange}
+        // onOpenChange={handleOpenChange}
         defaultOpenKeys={['sub1']}
+        defaultSelectedKeys={['1']}
       >
         <MenuContent menu={menu} />
       </Menu>

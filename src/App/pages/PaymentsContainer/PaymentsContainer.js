@@ -7,7 +7,7 @@ import { menus } from '../../../Common/data/menus';
 
 export const PaymentsContainer = () => {
   const { Content } = Layout;
-  const menu = menus.find(obj => obj.title === 'Payments');
+  const menu = menus.find(obj => obj.title === 'payments');
 
   return (
     <>

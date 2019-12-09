@@ -17,23 +17,23 @@ const MenuContent = props => {
             {tab.children ? (
               <SubMenu
                 {...other}
-                key={tab.path}
+                key={tab.key}
                 title={
                   <span>
                     {tab.icon && <Icon type={tab.icon} />}
-                    {tab.title}
+                    <FormattedMessage id={tab.title} />
                   </span>
                 }
               >
-                {tab.children.map(({ title, icon, path }) => (
-                  <Menu.Item key={path}>
+                {tab.children.map(({ title, icon, key }) => (
+                  <Menu.Item key={key}>
                     {icon && <Icon type={icon} />}
                     <FormattedMessage id={title} />
                   </Menu.Item>
                 ))}
               </SubMenu>
             ) : (
-              <Menu.Item {...other} key={tab.path}>
+              <Menu.Item {...other} key={tab.key}>
                 {tab.icon && <Icon type={tab.icon} />}
                 <span>
                   <FormattedMessage id={tab.title} />
