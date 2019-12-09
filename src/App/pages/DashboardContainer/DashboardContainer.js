@@ -3,17 +3,17 @@ import { Layout } from 'antd';
 
 import SideMenu from '../../components/SideMenu';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import { appStructureData } from '../../../Common/data';
+import { menus } from '../../../Common/data/menus';
 
 export const DashboardContainer = () => {
   const { Content } = Layout;
-  const menuStructure = appStructureData.find(obj => obj.name === 'Dashboard');
+  const menu = menus.find(obj => obj.title === 'Dashboard');
 
   return (
     <>
       <Breadcrumbs />
-      <Layout style={{ padding: '24px 0', background: '#fff' }}>
-        <SideMenu {...menuStructure} />
+      <Layout style={{ padding: '24px 0', background: '#fff', height: '100%' }}>
+        <SideMenu menu={menu} />
         <Content style={{ padding: '0 24px', minHeight: 280 }}>Hola</Content>
       </Layout>
     </>

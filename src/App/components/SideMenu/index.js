@@ -1,55 +1,68 @@
-import React, { Fragment } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import React, { useState, useEffect, useContext } from 'react';
+import { Layout, Menu } from 'antd';
+import { navigate } from '@reach/router';
 
-const MenuContent = props => {
-  const { SubMenu } = Menu;
-  const { sideMenu, ...other } = props;
+import { LocationContext } from '../../../Common/contexts';
+import MenuContent from './MenuContent';
 
-  return (
-    <>
-      {sideMenu.map((tab, index) => {
-        return (
-          <Fragment key={index}>
-            {tab.subMenu ? (
-              <SubMenu
-                {...other}
-                key={`sub-${tab.tabNumber}`}
-                title={
-                  <span>
-                    <Icon type="user" />
-                    {tab.name}
-                  </span>
-                }
-              >
-                {tab.subMenu.map(({ name, tabNumber }) => (
-                  <Menu.Item key={tabNumber}>{name}</Menu.Item>
-                ))}
-              </SubMenu>
-            ) : (
-              <Menu.Item {...other} key={tab.tabNumber}>
-                <Icon type="desktop" />
-                <span>{tab.name}</span>
-              </Menu.Item>
-            )}
-          </Fragment>
-        );
-      })}
-    </>
-  );
-};
+import './styles.css';
 
-const SideMenu = ({ sideMenu }) => {
+const SideMenu = ({ menu }) => {
   const { Sider } = Layout;
+  const {
+    location: { pathname }
+  } = useContext(LocationContext);
+
+  const isExpendable = menu.tabs.some(item => item.children);
+  const expandableTabs = () => {
+    const list = isExpendable ? menu.tabs.filter(item => item.children) : [];
+    return list.length ? list.map(subTab => subTab.path) : list;
+  };
+
+  const tabs = expandableTabs();
+  const firstClickableItem = isExpendable
+    ? menu.tabs.filter(item => item.children)[0].path
+    : menu.tabs[0].path;
+
+  const [collapsed, setCollapse] = useState(false);
+  const [rootSubmenuKeys] = useState(expandableTabs());
+  const [openKeys, setOpenKeys] = useState(tabs.length ? [tabs[0]] : []);
+  const [selectedKeys, setSelectedKeys] = useState([]);
+
+  useEffect(() => {
+    setSelectedKeys([firstClickableItem]);
+  }, []);
+
+  const handleMenuClick = v => {
+    setSelectedKeys([v.key]);
+    navigate(`${pathname}${v.key}`);
+  };
+
+  const onCollapse = () => {
+    setCollapse(!collapsed);
+  };
+
+  const handleOpenChange = v => {
+    const latestOpenKey = v.find(key => openKeys.indexOf(key) !== -1);
+    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      setOpenKeys(v);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
+  };
 
   return (
-    <Sider width={200} style={{ background: '#fff' }}>
+    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <Menu
-        mode="vertical"
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={[`sub1`]}
+        mode="inline"
         style={{ height: '100%' }}
+        selectedKeys={selectedKeys}
+        openKeys={openKeys}
+        onClick={handleMenuClick}
+        onOpenChange={handleOpenChange}
+        defaultOpenKeys={['sub1']}
       >
-        <MenuContent sideMenu={sideMenu} />
+        <MenuContent menu={menu} />
       </Menu>
     </Sider>
   );

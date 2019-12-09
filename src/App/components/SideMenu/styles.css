@@ -1,0 +1,8 @@
+.ant-layout-sider-trigger {
+  background: white;
+  position: relative;
+}
+
+.ant-layout-sider-trigger i {
+  color: #1da57a;
+}

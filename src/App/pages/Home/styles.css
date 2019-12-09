@@ -1,0 +1,8 @@
+.home__sub__section div[role='group'] {
+  height: 100%;
+}
+
+.ant-layout .ant-layout-has-sider {
+  height: calc(100% - 48px);
+  padding: 0;
+}

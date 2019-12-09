@@ -20,7 +20,7 @@ export const TopMenu = protectedComponent(() => {
   const { SubMenu } = Menu;
 
   return (
-    <Header className="header">
+    <Header className="header" style={{ position: 'fixed', width: '100%' }}>
       <div className="logo" />
       <Menu
         theme="light"
@@ -30,7 +30,7 @@ export const TopMenu = protectedComponent(() => {
         defaultSelectedKeys={['dashboard']}
       >
         <Menu.Item key="/dashboard">
-          <Icon type="dashboard" />{' '}
+          <Icon type="dashboard" />
           <Link to={'/dashboard'}>
             <FormattedMessage id={'dashboard'} />
           </Link>
