@@ -9,22 +9,62 @@ import {
   LocationProvider
 } from '../Common/contexts';
 
-const Home = lazy(() => import('./pages/Home'));
-const Login = lazy(() => import('./pages/Login'));
-const ForgotPassword = lazy(() => import('./pages/ForgotPassword'));
-const Register = lazy(() => import('./pages/Register'));
-const DashboardContainer = lazy(() => import('./pages/DashboardContainer'));
-const EmployeesContainer = lazy(() => import('./pages/EmployeesContainer'));
-const InventoryContainer = lazy(() => import('./pages/InventoryContainer'));
-const OrdersContainer = lazy(() => import('./pages/OrdersContainer'));
-const MenuContainer = lazy(() => import('./pages/MenuContainer'));
-const PaymentsContainer = lazy(() => import('./pages/PaymentsContainer'));
-const ReservationsContainer = lazy(() =>
-  import('./pages/ReservationsContainer')
-);
+const Home = lazy(async () => {
+  await import('./pages/Home');
+  return { default: props => <Home {...props} /> };
+});
+const Login = lazy(async () => {
+  await import('./pages/Login');
+  return { default: props => <Login {...props} /> };
+});
 
-const NotFoundPage = () => <div>Not Found</div>;
-const RedirectToNotFound = () => <Redirect noThrow to="/not-found" />;
+const ForgotPassword = lazy(async () => {
+  await import('./pages/ForgotPassword');
+  return { default: props => <ForgotPassword {...props} /> };
+});
+
+const Register = lazy(async () => {
+  await import('./pages/Register');
+  return { default: props => <Register {...props} /> };
+});
+
+const DashboardContainer = lazy(async () => {
+  await import('./pages/DashboardContainer');
+  return { default: props => <DashboardContainer {...props} /> };
+});
+
+const EmployeesContainer = lazy(async () => {
+  await import('./pages/EmployeesContainer');
+  return { default: props => <EmployeesContainer {...props} /> };
+});
+
+const InventoryContainer = lazy(async () => {
+  await import('./pages/InventoryContainer');
+  return { default: props => <InventoryContainer {...props} /> };
+});
+
+const OrdersContainer = lazy(async () => {
+  await import('./pages/OrdersContainer');
+  return { default: props => <OrdersContainer {...props} /> };
+});
+
+const MenuContainer = lazy(async () => {
+  await import('./pages/MenuContainer');
+  return { default: props => <MenuContainer {...props} /> };
+});
+
+const PaymentsContainer = lazy(async () => {
+  await import('./pages/PaymentsContainer');
+  return { default: props => <PaymentsContainer {...props} /> };
+});
+
+const ReservationsContainer = lazy(async () => {
+  await import('./pages/ReservationsContainer');
+  return { default: props => <ReservationsContainer {...props} /> };
+});
+
+const NotFoundPage = props => <div {...props}>Not Found</div>;
+const RedirectToNotFound = props => <Redirect {...props} />;
 
 const App = () => {
   return (
@@ -48,7 +88,7 @@ const App = () => {
                   <PaymentsContainer path="/payments" />
                   <ReservationsContainer path="/reservations" />
                   <InventoryContainer path="/inventory" />
-                  <RedirectToNotFound default />
+                  <RedirectToNotFound noThrow to="/not-found" />
                   <NotFoundPage path="/not-found" />
                 </Home>
               </Router>

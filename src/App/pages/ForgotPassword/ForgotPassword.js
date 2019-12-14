@@ -51,7 +51,7 @@ const NormalLoginForm = unProtectedComponent(({ form, intl }) => {
         />
         <PageHeader
           title={intl.formatMessage({ id: 'restePassword' })}
-          color="rgba(0, 0, 0, 0.65)"
+          // color="rgba(0, 0, 0, 0.65)"
         >
           <Avatar style={{ backgroundColor: '#1DA57A' }} icon="unlock" />
         </PageHeader>

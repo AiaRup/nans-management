@@ -35,9 +35,7 @@ const MenuContent = props => {
             ) : (
               <Menu.Item {...other} key={tab.key}>
                 {tab.icon && <Icon type={tab.icon} />}
-                <span>
-                  <FormattedMessage id={tab.title} />
-                </span>
+                <FormattedMessage id={tab.title} />
               </Menu.Item>
             )}
           </Fragment>

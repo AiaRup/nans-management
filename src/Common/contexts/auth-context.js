@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({});
 
 export const initialState = {
   authToken: 'fdd',

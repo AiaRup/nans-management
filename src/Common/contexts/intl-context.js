@@ -3,7 +3,7 @@ import { IntlProvider } from 'react-intl';
 
 import { getMessages } from '../services';
 
-export const IntlContext = createContext();
+export const IntlContext = createContext({});
 
 const initialState = {
   locale: 'en',

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Layout, Menu } from 'antd';
 import { navigate } from '@reach/router';
 
@@ -13,14 +13,16 @@ const SideMenu = ({ menu }) => {
     location: { pathname }
   } = useContext(LocationContext);
 
-  const isExpendable = menu.tabs.some(item => item.children);
-  const expandableTabs = isExpendable
-    ? menu.tabs.filter(item => item.children).map(subTab => subTab.path)
-    : [];
+  const { path: menuPath } = menu;
 
-  const firstClickableItem = isExpendable
-    ? menu.tabs.filter(item => item.children)[0].path
-    : menu.tabs[0].path;
+  // const isExpendable = menu.tabs.some(item => item.children);
+  // const expandableTabs = isExpendable
+  //   ? menu.tabs.filter(item => item.children).map(subTab => subTab.path)
+  //   : [];
+
+  // const firstClickableItem = isExpendable
+  //   ? menu.tabs.filter(item => item.children)[0].path
+  //   : menu.tabs[0].path;
 
   const [collapsed, setCollapse] = useState(false);
   // const [rootSubmenuKeys] = useState(expandableTabs);
@@ -34,8 +36,15 @@ const SideMenu = ({ menu }) => {
   // }, []);
 
   const handleMenuClick = v => {
-    // setSelectedKeys([v.key]);
-    navigate(`${pathname}${v.key}`);
+    const itemKey = v.key === 'item_0' ? 1 : v.key;
+    const firstLevelTabPath = menu.tabs.find(tab => tab.key === itemKey);
+    const tabPath = firstLevelTabPath
+      ? firstLevelTabPath.path
+      : menu.tabs
+          .filter(item => item.children)
+          .map(subTab => subTab.key)
+          .find(tab => tab.key === itemKey).path;
+    navigate(`${pathname}${menuPath}${tabPath}`);
   };
 
   const onCollapse = () => {
@@ -52,9 +61,14 @@ const SideMenu = ({ menu }) => {
   // };
 
   return (
-    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+    <Sider
+      collapsible
+      collapsed={collapsed}
+      onCollapse={onCollapse}
+      width={200}
+    >
       <Menu
-        mode="inline"
+        mode="vertical"
         style={{ height: '100%' }}
         // selectedKeys={selectedKeys}
         // openKeys={openKeys}

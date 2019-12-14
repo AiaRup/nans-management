@@ -23,9 +23,9 @@ const RegistrationForm = unProtectedComponent(({ form, intl }) => {
     });
   };
 
-  const handleConfirmBlur = e => {
-    const { value } = e.target;
-    this.setState({ confirmDirty: state.confirmDirty || !!value });
+  const handleConfirmBlur = () => {
+    // const { value } = e.target;
+    // this.setState({ confirmDirty: state.confirmDirty || !!value });
   };
 
   const compareToFirstPassword = (rule, value, callback) => {
@@ -92,7 +92,7 @@ const RegistrationForm = unProtectedComponent(({ form, intl }) => {
         />
         <PageHeader
           title={intl.formatMessage({ id: 'register' })}
-          color="rgba(0, 0, 0, 0.65)"
+          // color="rgba(0, 0, 0, 0.65)"
         >
           <Avatar style={{ backgroundColor: '#1DA57A' }} icon="user-add" />
         </PageHeader>

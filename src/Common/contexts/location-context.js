@@ -1,7 +1,7 @@
 import React, { createContext } from 'react';
 import { Location } from '@reach/router';
 
-export const LocationContext = createContext();
+export const LocationContext = createContext({});
 
 export const LocationProvider = ({ children }) => {
   return (
