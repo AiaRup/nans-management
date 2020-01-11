@@ -241,7 +241,6 @@ export const menus = [
     title: 'orders',
     path: '/orders',
     icon: 'user',
-
     tabs: [
       {
         title: 'todaysOrders',

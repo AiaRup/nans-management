@@ -13,14 +13,14 @@ const SideMenu = ({ menu }) => {
     location: { pathname }
   } = useContext(LocationContext);
 
-  const isExpendable = menu.tabs.some(item => item.children);
+  const isExpendable = menu?.tabs?.some(item => item.children);
   const expandableTabs = isExpendable
     ? menu.tabs.filter(item => item.children).map(subTab => subTab.path)
     : [];
 
   const firstClickableItem = isExpendable
-    ? menu.tabs.filter(item => item.children)[0].path
-    : menu.tabs[0].path;
+    ? menu?.tabs.filter(item => item.children)[0].path
+    : menu?.tabs[0].path;
 
   const [collapsed, setCollapse] = useState(false);
   // const [rootSubmenuKeys] = useState(expandableTabs);

@@ -26,7 +26,7 @@ const MenuContent = props => {
                 }
               >
                 {tab.children.map(({ title, icon, key }) => (
-                  <Menu.Item key={key}>
+                  <Menu.Item key={key} eventKey={key}>
                     {icon && <Icon type={icon} />}
                     <FormattedMessage id={title} />
                   </Menu.Item>
